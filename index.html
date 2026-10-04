@@ -149,7 +149,11 @@ const lightbox=$("lightbox"),lightboxContent=$("lightboxContent"),lightboxCaptio
 function openLightbox(url,video,name){lightboxContent.innerHTML="";const el=document.createElement(video?"video":"img");el.src=url;if(video){el.controls=true;el.autoplay=true;el.playsInline=true;el.muted=false}else{el.alt=name||"SIROHI CLICK"}lightboxContent.appendChild(el);lightboxCaption.textContent=name||"SIROHI CLICK • CINEMATIC STORIES";lightbox.classList.add("open");document.body.style.overflow="hidden"}
 function closeLightbox(){lightbox.classList.remove("open");lightboxContent.innerHTML="";document.body.style.overflow=""}
 $("lightboxClose").onclick=closeLightbox;lightbox.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox()});
+let mediaLoadInProgress=false;
 async function loadMedia(){
+  if(mediaLoadInProgress)return;
+  mediaLoadInProgress=true;
+  try{
   const {data,error}=await supabase.from("media").select("*").order("created_at",{ascending:false});
   if(error){gallery.innerHTML='<div class="empty">Gallery setup pending. Admin login/storage setup complete hone ke baad media yahan dikhega.</div>';return}
   if(!data?.length){gallery.innerHTML='<div class="empty">Abhi koi photo/video upload nahi hai.</div>';return}
@@ -163,6 +167,7 @@ async function loadMedia(){
     if(loggedIn){const b=document.createElement("button");b.className="delete";b.textContent="×";b.title="Delete";b.onclick=()=>deleteMedia(item);wrap.appendChild(b)}
     gallery.appendChild(wrap);
   });
+  }finally{mediaLoadInProgress=false;}
 }
 
 async function uploadFiles(files){
