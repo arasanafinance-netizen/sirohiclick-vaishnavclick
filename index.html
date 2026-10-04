@@ -1,0 +1,520 @@
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vaishnav Click × Sirohi Click</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:#050505;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:10;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(15px);
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.logo span{
+  color:#d9aa5b;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:13px;
+}
+
+.hero{
+  height:100vh;
+  min-height:650px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
+  url("https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85");
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-content{
+  padding:20px;
+}
+
+.small{
+  color:#d9aa5b;
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:clamp(50px,9vw,105px);
+  line-height:.9;
+}
+
+h1 span{
+  color:#d9aa5b;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:18px;
+  line-height:1.7;
+  margin:25px 0;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  margin:6px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+}
+
+.gold{
+  background:#d9aa5b;
+  color:#111;
+}
+
+.outline{
+  border:1px solid #aaa;
+  color:white;
+  background:transparent;
+}
+
+section{
+  padding:90px 6%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title h2{
+  font-size:45px;
+}
+
+.title p{
+  color:#999;
+  margin-top:10px;
+}
+
+.about{
+  background:#0b0907;
+}
+
+.about-box{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  line-height:1.9;
+  color:#bbb;
+  font-size:17px;
+}
+
+.services{
+  background:#050505;
+}
+
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.card{
+  padding:35px 20px;
+  background:#111;
+  border:1px solid #292929;
+  border-radius:18px;
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#d9aa5b;
+}
+
+.card div{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.card p{
+  color:#888;
+  margin-top:10px;
+}
+
+.admin{
+  background:#0b0907;
+}
+
+.admin-box{
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+  border:1px solid #332919;
+  border-radius:20px;
+  background:#100e0b;
+}
+
+.admin-box h3{
+  color:#d9aa5b;
+  margin-bottom:20px;
+}
+
+input[type=file]{
+  display:none;
+}
+
+.upload-label{
+  display:inline-block;
+  padding:14px 20px;
+  background:#d9aa5b;
+  color:#111;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+  margin:5px;
+}
+
+#gallery{
+  background:#030303;
+}
+
+.gallery{
+  max-width:1200px;
+  margin:auto;
+  columns:3 250px;
+  column-gap:15px;
+}
+
+.item{
+  position:relative;
+  margin-bottom:15px;
+  break-inside:avoid;
+  overflow:hidden;
+  border-radius:15px;
+  background:#111;
+}
+
+.item img,
+.item video{
+  width:100%;
+  display:block;
+}
+
+.delete{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#000;
+  color:white;
+  border:1px solid #777;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  cursor:pointer;
+}
+
+.instagram{
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+  url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=85");
+  background-size:cover;
+  background-position:center;
+}
+
+.contact{
+  text-align:center;
+  background:#080706;
+}
+
+.contact p{
+  color:#aaa;
+  line-height:2;
+  margin:20px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020202;
+  color:#666;
+}
+
+@media(max-width:800px){
+
+  nav a{
+    display:none;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:70px 5%;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    VAISHNAV <span>CLICK</span>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#admin">Add</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="small">
+      SIROHI • JAIPUR • JODHPUR • RAJASTHAN
+    </div>
+
+    <h1>
+      VAISHNAV
+      <span>CLICK</span>
+    </h1>
+
+    <p>
+      हर पल की एक कहानी।
+      <br>
+      Photography • Reels • Editing • iPhone Shoot
+    </p>
+
+    <a
+      class="btn gold"
+      href="https://www.instagram.com/vaishnavclick/"
+      target="_blank">
+      Instagram
+    </a>
+
+    <a
+      class="btn outline"
+      href="#gallery">
+      My Work
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+  <div class="title">
+    <div class="small">MHARO PARICHAY</div>
+    <h2>Rajasthan Through My Lens</h2>
+  </div>
+
+  <div class="about-box">
+
+    Vaishnav Click × Sirohi Click ek creative
+    photography aur content creation platform hai.
+
+    <br><br>
+
+    Rajasthan ke culture, people, architecture,
+    lifestyle aur beautiful moments ko cinematic
+    style mein capture karna hamara passion hai.
+
+  </div>
+
+</section>
+
+
+<section class="services">
+
+  <div class="title">
+    <div class="small">WHAT WE DO</div>
+    <h2>Our Services</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div>📸</div>
+      <h3>Photography</h3>
+      <p>Creative photography</p>
+    </div>
+
+    <div class="card">
+      <div>🎬</div>
+      <h3>Reels</h3>
+      <p>Cinematic Instagram reels</p>
+    </div>
+
+    <div class="card">
+      <div>✨</div>
+      <h3>Editing</h3>
+      <p>Photo & video editing</p>
+    </div>
+
+    <div class="card">
+      <div>📱</div>
+      <h3>iPhone Shoot</h3>
+      <p>Mobile content creation</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="admin" id="admin">
+
+  <div class="title">
+
+    <div class="small">
+      EASY EDIT
+    </div>
+
+    <h2>Add Your Work</h2>
+
+    <p>
+      Phone/computer se photo ya video select karo.
+    </p>
+
+  </div>
+
+
+  <div class="admin-box">
+
+    <h3>📸 Photos</h3>
+
+    <label class="upload-label">
+      + Add Photos
+      <input
+        type="file"
+        id="photoInput"
+        accept="image/*"
+        multiple>
+    </label>
+
+
+    <h3 style="margin-top:30px">
+      🎥 Videos
+    </h3>
+
+    <label class="upload-label">
+      + Add Videos
+      <input
+        type="file"
+        id="videoInput"
+        accept="video/*"
+        multiple>
+    </label>
+
+    <p style="color:#777;margin-top:20px;line-height:1.6">
+      ⚠️ Abhi selected files isi browser mein
+      temporarily show hongi. Permanent online upload
+      ke liye cloud storage connect karna hoga.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="gallery">
+
+  <div class="title">
+
+    <div class="small">
+      YOUR WORK
+    </div>
+
+    <h2>Photo & Video Stories</h2>
+
+  </div>
+
+  <div class="gallery" id="mediaGallery"></div>
+
+</section>
+
+
+<section class="instagram">
+
+  <div class="title">
+
+    <div class="small">
+      FOLLOW THE JOURNEY
+    </div>
+
+    <h2>
+      Instagram
+    </h2>
+
+    <p>
+      Daily photos & reels ke liye follow karo.
+    </p>
+
+    <a
+      class="btn gold"
+      href="https://www.instagram.com/vaishnavclick/"
+      target="_blank">
+      @vaishnavclick
+    </a>
+
+    <a
+      class="btn
+```
