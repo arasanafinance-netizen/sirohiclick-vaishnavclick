@@ -1,520 +1,111 @@
-```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vaishnav Click × Sirohi Click</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Vaishnav Click × Sirohi Click — Rajasthan photography, reels, editing and iPhone shoots.">
+<meta name="keywords" content="Vaishnav Click, Sirohi Click, Sirohi photographer, Rajasthan photography, Jaipur photographer, Jodhpur photographer, reels creator">
+<title>VAISHNAV CLICK × SIROHI CLICK | Rajasthan Creator</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  background:#050505;
-  color:white;
-  font-family:Arial,sans-serif;
-}
-
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:10;
-  padding:18px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(15px);
-}
-
-.logo{
-  font-size:20px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-.logo span{
-  color:#d9aa5b;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-size:13px;
-}
-
-.hero{
-  height:100vh;
-  min-height:650px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
-  url("https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85");
-  background-size:cover;
-  background-position:center;
-}
-
-.hero-content{
-  padding:20px;
-}
-
-.small{
-  color:#d9aa5b;
-  letter-spacing:5px;
-  font-size:12px;
-  margin-bottom:20px;
-}
-
-h1{
-  font-size:clamp(50px,9vw,105px);
-  line-height:.9;
-}
-
-h1 span{
-  color:#d9aa5b;
-}
-
-.hero p{
-  color:#ddd;
-  font-size:18px;
-  line-height:1.7;
-  margin:25px 0;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 24px;
-  margin:6px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  border:none;
-}
-
-.gold{
-  background:#d9aa5b;
-  color:#111;
-}
-
-.outline{
-  border:1px solid #aaa;
-  color:white;
-  background:transparent;
-}
-
-section{
-  padding:90px 6%;
-}
-
-.title{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.title h2{
-  font-size:45px;
-}
-
-.title p{
-  color:#999;
-  margin-top:10px;
-}
-
-.about{
-  background:#0b0907;
-}
-
-.about-box{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  line-height:1.9;
-  color:#bbb;
-  font-size:17px;
-}
-
-.services{
-  background:#050505;
-}
-
-.cards{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.card{
-  padding:35px 20px;
-  background:#111;
-  border:1px solid #292929;
-  border-radius:18px;
-  text-align:center;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#d9aa5b;
-}
-
-.card div{
-  font-size:35px;
-  margin-bottom:15px;
-}
-
-.card p{
-  color:#888;
-  margin-top:10px;
-}
-
-.admin{
-  background:#0b0907;
-}
-
-.admin-box{
-  max-width:900px;
-  margin:auto;
-  padding:30px;
-  border:1px solid #332919;
-  border-radius:20px;
-  background:#100e0b;
-}
-
-.admin-box h3{
-  color:#d9aa5b;
-  margin-bottom:20px;
-}
-
-input[type=file]{
-  display:none;
-}
-
-.upload-label{
-  display:inline-block;
-  padding:14px 20px;
-  background:#d9aa5b;
-  color:#111;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
-  margin:5px;
-}
-
-#gallery{
-  background:#030303;
-}
-
-.gallery{
-  max-width:1200px;
-  margin:auto;
-  columns:3 250px;
-  column-gap:15px;
-}
-
-.item{
-  position:relative;
-  margin-bottom:15px;
-  break-inside:avoid;
-  overflow:hidden;
-  border-radius:15px;
-  background:#111;
-}
-
-.item img,
-.item video{
-  width:100%;
-  display:block;
-}
-
-.delete{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#000;
-  color:white;
-  border:1px solid #777;
-  border-radius:50%;
-  width:35px;
-  height:35px;
-  cursor:pointer;
-}
-
-.instagram{
-  text-align:center;
-  background:
-  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-  url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=85");
-  background-size:cover;
-  background-position:center;
-}
-
-.contact{
-  text-align:center;
-  background:#080706;
-}
-
-.contact p{
-  color:#aaa;
-  line-height:2;
-  margin:20px;
-}
-
-footer{
-  text-align:center;
-  padding:30px;
-  background:#020202;
-  color:#666;
-}
-
-@media(max-width:800px){
-
-  nav a{
-    display:none;
-  }
-
-  .cards{
-    grid-template-columns:1fr 1fr;
-  }
-
-}
-
-@media(max-width:500px){
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:70px 5%;
-  }
-
-}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#050505;color:#fff;font-family:Arial,sans-serif;line-height:1.5}header{position:fixed;top:0;left:0;width:100%;z-index:20;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.68);backdrop-filter:blur(14px);border-bottom:1px solid #222}.logo{font-weight:800;letter-spacing:2px}.goldtxt{color:#d9aa5b}nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:13px}.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:100px 6% 60px;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.88)),url("https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2200&q=85") center/cover}.small{color:#d9aa5b;letter-spacing:4px;font-size:11px;margin-bottom:18px}.hero h1{font-size:clamp(48px,9vw,105px);line-height:.9}.hero p{color:#ddd;font-size:18px;margin:25px 0}.btn{display:inline-block;padding:13px 22px;margin:5px;border-radius:30px;text-decoration:none;font-weight:700;border:0;cursor:pointer}.gold{background:#d9aa5b;color:#111}.outline{background:transparent;color:#fff;border:1px solid #888}section{padding:90px 6%}.about{background:#0b0907}.title{text-align:center;margin-bottom:42px}.title h2{font-size:clamp(32px,5vw,48px)}.title p{color:#999;margin-top:10px}.about-box{max-width:900px;margin:auto;text-align:center;color:#bbb;font-size:17px;line-height:1.9}.cards{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{padding:34px 20px;background:#111;border:1px solid #292929;border-radius:18px;text-align:center;transition:.25s}.card:hover{transform:translateY(-6px);border-color:#d9aa5b}.card .ico{font-size:34px;margin-bottom:12px}.card p{color:#888;margin-top:8px}.admin{background:#0b0907}.admin-box{max-width:900px;margin:auto;padding:28px;border:1px solid #332919;border-radius:20px;background:#100e0b}.admin-box h3{color:#d9aa5b;margin-bottom:14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.input{width:100%;padding:13px 15px;border-radius:10px;border:1px solid #444;background:#080808;color:#fff;margin-bottom:10px}.hidden{display:none!important}.status{color:#aaa;margin:12px 0}.upload-label{display:inline-block;padding:13px 18px;background:#d9aa5b;color:#111;border-radius:25px;cursor:pointer;font-weight:700;margin:4px}.gallery{max-width:1200px;margin:auto;columns:3 250px;column-gap:15px}.item{position:relative;margin-bottom:15px;break-inside:avoid;overflow:hidden;border-radius:15px;background:#111;border:1px solid #222}.item img,.item video{width:100%;display:block;max-height:700px;object-fit:cover}.delete{position:absolute;top:9px;right:9px;background:#000d;color:#fff;border:1px solid #777;border-radius:50%;width:35px;height:35px;cursor:pointer}.empty{text-align:center;color:#777;padding:30px}.instagram{text-align:center;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=85") center/cover}.contact{text-align:center;background:#080706}.contact p{color:#aaa;line-height:2;margin:20px}footer{text-align:center;padding:30px;background:#020202;color:#666}.login-note{color:#777;font-size:13px;margin-top:12px}@media(max-width:800px){nav a{display:none}.cards{grid-template-columns:1fr 1fr}}@media(max-width:500px){.cards{grid-template-columns:1fr}section{padding:70px 5%}.hero{min-height:90vh}}
 </style>
 </head>
-
 <body>
-
-<header>
-
-  <div class="logo">
-    VAISHNAV <span>CLICK</span>
-  </div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#admin">Add</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-</header>
-
-
-<section class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="small">
-      SIROHI • JAIPUR • JODHPUR • RAJASTHAN
-    </div>
-
-    <h1>
-      VAISHNAV
-      <span>CLICK</span>
-    </h1>
-
-    <p>
-      हर पल की एक कहानी।
-      <br>
-      Photography • Reels • Editing • iPhone Shoot
-    </p>
-
-    <a
-      class="btn gold"
-      href="https://www.instagram.com/vaishnavclick/"
-      target="_blank">
-      Instagram
-    </a>
-
-    <a
-      class="btn outline"
-      href="#gallery">
-      My Work
-    </a>
-
-  </div>
-
-</section>
-
-
-<section class="about" id="about">
-
-  <div class="title">
-    <div class="small">MHARO PARICHAY</div>
-    <h2>Rajasthan Through My Lens</h2>
-  </div>
-
-  <div class="about-box">
-
-    Vaishnav Click × Sirohi Click ek creative
-    photography aur content creation platform hai.
-
-    <br><br>
-
-    Rajasthan ke culture, people, architecture,
-    lifestyle aur beautiful moments ko cinematic
-    style mein capture karna hamara passion hai.
-
-  </div>
-
-</section>
-
-
-<section class="services">
-
-  <div class="title">
-    <div class="small">WHAT WE DO</div>
-    <h2>Our Services</h2>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <div>📸</div>
-      <h3>Photography</h3>
-      <p>Creative photography</p>
-    </div>
-
-    <div class="card">
-      <div>🎬</div>
-      <h3>Reels</h3>
-      <p>Cinematic Instagram reels</p>
-    </div>
-
-    <div class="card">
-      <div>✨</div>
-      <h3>Editing</h3>
-      <p>Photo & video editing</p>
-    </div>
-
-    <div class="card">
-      <div>📱</div>
-      <h3>iPhone Shoot</h3>
-      <p>Mobile content creation</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="admin" id="admin">
-
-  <div class="title">
-
-    <div class="small">
-      EASY EDIT
-    </div>
-
-    <h2>Add Your Work</h2>
-
-    <p>
-      Phone/computer se photo ya video select karo.
-    </p>
-
-  </div>
-
-
-  <div class="admin-box">
-
-    <h3>📸 Photos</h3>
-
-    <label class="upload-label">
-      + Add Photos
-      <input
-        type="file"
-        id="photoInput"
-        accept="image/*"
-        multiple>
-    </label>
-
-
-    <h3 style="margin-top:30px">
-      🎥 Videos
-    </h3>
-
-    <label class="upload-label">
-      + Add Videos
-      <input
-        type="file"
-        id="videoInput"
-        accept="video/*"
-        multiple>
-    </label>
-
-    <p style="color:#777;margin-top:20px;line-height:1.6">
-      ⚠️ Abhi selected files isi browser mein
-      temporarily show hongi. Permanent online upload
-      ke liye cloud storage connect karna hoga.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section id="gallery">
-
-  <div class="title">
-
-    <div class="small">
-      YOUR WORK
-    </div>
-
-    <h2>Photo & Video Stories</h2>
-
-  </div>
-
-  <div class="gallery" id="mediaGallery"></div>
-
-</section>
-
-
-<section class="instagram">
-
-  <div class="title">
-
-    <div class="small">
-      FOLLOW THE JOURNEY
-    </div>
-
-    <h2>
-      Instagram
-    </h2>
-
-    <p>
-      Daily photos & reels ke liye follow karo.
-    </p>
-
-    <a
-      class="btn gold"
-      href="https://www.instagram.com/vaishnavclick/"
-      target="_blank">
-      @vaishnavclick
-    </a>
-
-    <a
-      class="btn
-```
+<header><div class="logo">VAISHNAV <span class="goldtxt">CLICK</span></div><nav><a href="#home">Home</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#admin">Admin</a><a href="#contact">Contact</a></nav></header>
+
+<section class="hero" id="home"><div><div class="small">SIROHI • JAIPUR • JODHPUR • RAJASTHAN</div><h1>VAISHNAV <span class="goldtxt">CLICK</span></h1><p>हर पल की एक कहानी।<br>Photography • Reels • Editing • iPhone Shoot</p><a class="btn gold" href="https://www.instagram.com/vaishnavclick/" target="_blank">Instagram</a><a class="btn outline" href="#gallery">My Work</a></div></section>
+
+<section class="about" id="about"><div class="title"><div class="small">MHARO PARICHAY</div><h2>Rajasthan Through My Lens</h2></div><div class="about-box">Vaishnav Click × Sirohi Click ek creative photography aur content creation platform hai.<br><br>Rajasthan ke culture, people, architecture, lifestyle aur beautiful moments ko cinematic style mein capture karna hamara passion hai.</div></section>
+
+<section><div class="title"><div class="small">WHAT WE DO</div><h2>Our Services</h2></div><div class="cards"><div class="card"><div class="ico">📸</div><h3>Photography</h3><p>Creative photography</p></div><div class="card"><div class="ico">🎬</div><h3>Reels</h3><p>Cinematic Instagram reels</p></div><div class="card"><div class="ico">✨</div><h3>Editing</h3><p>Photo & video editing</p></div><div class="card"><div class="ico">📱</div><h3>iPhone Shoot</h3><p>Mobile content creation</p></div></div></section>
+
+<section class="admin" id="admin"><div class="title"><div class="small">PRIVATE ADMIN</div><h2>Manage Your Work</h2><p>Login karke photo/video permanently online upload karo.</p></div><div class="admin-box">
+<div id="loginBox"><h3>🔐 Admin Login</h3><input class="input" id="email" type="email" placeholder="Admin email"><input class="input" id="password" type="password" placeholder="Password"><button class="btn gold" id="loginBtn">Login</button><div id="loginStatus" class="status"></div><div class="login-note">Admin account Supabase Dashboard → Authentication → Users me create karna hoga.</div></div>
+<div id="panel" class="hidden"><h3>☁️ Cloud Upload</h3><div class="row"><label class="upload-label">+ Add Photos<input id="photoInput" type="file" accept="image/*" multiple class="hidden"></label><label class="upload-label">+ Add Videos<input id="videoInput" type="file" accept="video/*" multiple class="hidden"></label><button class="btn outline" id="logoutBtn">Logout</button></div><div id="uploadStatus" class="status"></div><p style="color:#777">Uploaded files cloud me save hongi aur visitors ko gallery me dikhegi.</p></div>
+</div></section>
+
+<section id="gallery"><div class="title"><div class="small">YOUR WORK</div><h2>Photo & Video Stories</h2><p>Latest uploads</p></div><div class="gallery" id="mediaGallery"><div class="empty">Loading your stories…</div></div></section>
+
+<section class="instagram"><div class="title"><div class="small">FOLLOW THE JOURNEY</div><h2>Instagram</h2><p>Daily photos & reels ke liye follow karo.</p><a class="btn gold" href="https://www.instagram.com/vaishnavclick/" target="_blank">@vaishnavclick</a><a class="btn outline" href="https://www.instagram.com/sirohiclick/" target="_blank">@sirohiclick</a></div></section>
+
+<section class="contact" id="contact"><div class="title"><div class="small">GET IN TOUCH</div><h2>Let's Create</h2></div><p>📍 Sirohi, Rajasthan<br>📞 <a style="color:#d9aa5b" href="tel:7014136083">7014136083</a><br>✉️ <a style="color:#d9aa5b" href="mailto:himanshuvaishnav787@gmail.com">himanshuvaishnav787@gmail.com</a></p><a class="btn gold" href="https://wa.me/917014136083" target="_blank">WhatsApp</a></section>
+<footer>© 2026 VAISHNAV CLICK × SIROHI CLICK — हर पल की एक कहानी।</footer>
+
+<script>
+const SUPABASE_URL = "https://ixymrekmkcdnzowmpyey.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_sMHkMrv_U7uqcNpnqd9fyw_MEFIsuOa";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const BUCKET = "media";
+
+const $ = id => document.getElementById(id);
+const loginBox=$("loginBox"), panel=$("panel"), gallery=$("mediaGallery");
+
+function setStatus(el,msg){el.textContent=msg}
+function isVideo(type){return type && type.startsWith("video/")}
+
+async function loadMedia(){
+  const {data,error}=await supabase.from("media").select("*").order("created_at",{ascending:false});
+  if(error){gallery.innerHTML='<div class="empty">Gallery setup pending. Admin login/storage setup complete hone ke baad media yahan dikhega.</div>';return}
+  if(!data?.length){gallery.innerHTML='<div class="empty">Abhi koi photo/video upload nahi hai.</div>';return}
+  gallery.innerHTML="";
+  const {data:sessionData}=await supabase.auth.getSession();
+  const loggedIn=!!sessionData.session;
+  data.forEach(item=>{
+    const wrap=document.createElement("div");wrap.className="item";
+    if(isVideo(item.type)){const v=document.createElement("video");v.src=item.url;v.controls=true;v.preload="metadata";wrap.appendChild(v)}
+    else{const img=document.createElement("img");img.src=item.url;img.alt=item.name||"Vaishnav Click";img.loading="lazy";wrap.appendChild(img)}
+    if(loggedIn){const b=document.createElement("button");b.className="delete";b.textContent="×";b.title="Delete";b.onclick=()=>deleteMedia(item);wrap.appendChild(b)}
+    gallery.appendChild(wrap);
+  });
+}
+
+async function uploadFiles(files){
+  const {data:{session}}=await supabase.auth.getSession();
+  if(!session){setStatus($("uploadStatus"),"Pehle admin login karo.");return}
+  const status=$("uploadStatus");
+  for(const file of files){
+    setStatus(status,"Uploading "+file.name+"…");
+    const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
+    const path=session.user.id+"/"+Date.now()+"-"+crypto.randomUUID()+"-"+safe;
+    const {error:upErr}=await supabase.storage.from(BUCKET).upload(path,file,{contentType:file.type,upsert:false});
+    if(upErr){setStatus(status,"Upload failed: "+upErr.message);continue}
+    const {data:pub}=supabase.storage.from(BUCKET).getPublicUrl(path);
+    const {error:dbErr}=await supabase.from("media").insert({name:file.name,path,type:file.type,url:pub.publicUrl});
+    if(dbErr){await supabase.storage.from(BUCKET).remove([path]);setStatus(status,"Database error: "+dbErr.message);continue}
+  }
+  setStatus(status,"Upload complete ✓");
+  $("photoInput").value="";$("videoInput").value="";
+  await loadMedia();
+}
+
+async function deleteMedia(item){
+  if(!confirm("Is photo/video ko delete karna hai?"))return;
+  const {error:storageErr}=await supabase.storage.from(BUCKET).remove([item.path]);
+  if(storageErr){alert(storageErr.message);return}
+  const {error:dbErr}=await supabase.from("media").delete().eq("id",item.id);
+  if(dbErr){alert(dbErr.message);return}
+  await loadMedia();
+}
+
+$("loginBtn").onclick=async()=>{
+  const email=$("email").value.trim(),password=$("password").value;
+  if(!email||!password){setStatus($("loginStatus"),"Email aur password bharo.");return}
+  setStatus($("loginStatus"),"Login ho raha hai…");
+  const {error}=await supabase.auth.signInWithPassword({email,password});
+  setStatus($("loginStatus"),error?error.message:"Login successful ✓");
+};
+
+$("logoutBtn").onclick=()=>supabase.auth.signOut();
+$("photoInput").onchange=e=>uploadFiles([...e.target.files]);
+$("videoInput").onchange=e=>uploadFiles([...e.target.files]);
+
+supabase.auth.onAuthStateChange((_event,session)=>{
+  loginBox.classList.toggle("hidden",!!session);
+  panel.classList.toggle("hidden",!session);
+  loadMedia();
+});
+loadMedia();
+</script>
+</body>
+</html>
