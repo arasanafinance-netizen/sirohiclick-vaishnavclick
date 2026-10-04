@@ -6,7 +6,7 @@
 <meta name="description" content="Vaishnav Click × Sirohi Click — Rajasthan photography, reels, editing and iPhone shoots.">
 <meta name="keywords" content="Vaishnav Click, Sirohi Click, Sirohi photographer, Rajasthan photography, Jaipur photographer, Jodhpur photographer, reels creator">
 <title>VAISHNAV CLICK × SIROHI CLICK | Rajasthan Creator</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#050505;color:#fff;font-family:Arial,sans-serif;line-height:1.5}header{position:fixed;top:0;left:0;width:100%;z-index:20;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.68);backdrop-filter:blur(14px);border-bottom:1px solid #222}.logo{font-weight:800;letter-spacing:2px}.goldtxt{color:#d9aa5b}nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:13px}.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:100px 6% 60px;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.88)),url("https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2200&q=85") center/cover}.small{color:#d9aa5b;letter-spacing:4px;font-size:11px;margin-bottom:18px}.hero h1{font-size:clamp(48px,9vw,105px);line-height:.9}.hero p{color:#ddd;font-size:18px;margin:25px 0}.btn{display:inline-block;padding:13px 22px;margin:5px;border-radius:30px;text-decoration:none;font-weight:700;border:0;cursor:pointer}.gold{background:#d9aa5b;color:#111}.outline{background:transparent;color:#fff;border:1px solid #888}section{padding:90px 6%}.about{background:#0b0907}.title{text-align:center;margin-bottom:42px}.title h2{font-size:clamp(32px,5vw,48px)}.title p{color:#999;margin-top:10px}.about-box{max-width:900px;margin:auto;text-align:center;color:#bbb;font-size:17px;line-height:1.9}.cards{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{padding:34px 20px;background:#111;border:1px solid #292929;border-radius:18px;text-align:center;transition:.25s}.card:hover{transform:translateY(-6px);border-color:#d9aa5b}.card .ico{font-size:34px;margin-bottom:12px}.card p{color:#888;margin-top:8px}.admin{background:#0b0907}.admin-box{max-width:900px;margin:auto;padding:28px;border:1px solid #332919;border-radius:20px;background:#100e0b}.admin-box h3{color:#d9aa5b;margin-bottom:14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.input{width:100%;padding:13px 15px;border-radius:10px;border:1px solid #444;background:#080808;color:#fff;margin-bottom:10px}.hidden{display:none!important}.status{color:#aaa;margin:12px 0}.upload-label{display:inline-block;padding:13px 18px;background:#d9aa5b;color:#111;border-radius:25px;cursor:pointer;font-weight:700;margin:4px}.gallery{max-width:1200px;margin:auto;columns:3 250px;column-gap:15px}.item{position:relative;margin-bottom:15px;break-inside:avoid;overflow:hidden;border-radius:15px;background:#111;border:1px solid #222}.item img,.item video{width:100%;display:block;max-height:700px;object-fit:cover}.delete{position:absolute;top:9px;right:9px;background:#000d;color:#fff;border:1px solid #777;border-radius:50%;width:35px;height:35px;cursor:pointer}.empty{text-align:center;color:#777;padding:30px}.instagram{text-align:center;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=85") center/cover}.contact{text-align:center;background:#080706}.contact p{color:#aaa;line-height:2;margin:20px}footer{text-align:center;padding:30px;background:#020202;color:#666}.login-note{color:#777;font-size:13px;margin-top:12px}@media(max-width:800px){nav a{display:none}.cards{grid-template-columns:1fr 1fr}}@media(max-width:500px){.cards{grid-template-columns:1fr}section{padding:70px 5%}.hero{min-height:90vh}}
 </style>
@@ -21,7 +21,7 @@
 <section><div class="title"><div class="small">WHAT WE DO</div><h2>Our Services</h2></div><div class="cards"><div class="card"><div class="ico">📸</div><h3>Photography</h3><p>Creative photography</p></div><div class="card"><div class="ico">🎬</div><h3>Reels</h3><p>Cinematic Instagram reels</p></div><div class="card"><div class="ico">✨</div><h3>Editing</h3><p>Photo & video editing</p></div><div class="card"><div class="ico">📱</div><h3>iPhone Shoot</h3><p>Mobile content creation</p></div></div></section>
 
 <section class="admin" id="admin"><div class="title"><div class="small">PRIVATE ADMIN</div><h2>Manage Your Work</h2><p>Login karke photo/video permanently online upload karo.</p></div><div class="admin-box">
-<div id="loginBox"><h3>🔐 Admin Login</h3><input class="input" id="email" type="email" placeholder="Admin email"><input class="input" id="password" type="password" placeholder="Password"><button class="btn gold" id="loginBtn">Login</button><div id="loginStatus" class="status"></div><div class="login-note">Admin account Supabase Dashboard → Authentication → Users me create karna hoga.</div></div>
+<div id="loginBox"><h3>🔐 Admin Login</h3><input class="input" id="email" type="email" placeholder="Admin email"><input class="input" id="password" type="password" placeholder="Password"><button type="button" class="btn gold" id="loginBtn">Login</button><div id="loginStatus" class="status"></div><div class="login-note">Admin account Supabase Dashboard → Authentication → Users me create karna hoga.</div></div>
 <div id="panel" class="hidden"><h3>☁️ Cloud Upload</h3><div class="row"><label class="upload-label">+ Add Photos<input id="photoInput" type="file" accept="image/*" multiple class="hidden"></label><label class="upload-label">+ Add Videos<input id="videoInput" type="file" accept="video/*" multiple class="hidden"></label><button class="btn outline" id="logoutBtn">Logout</button></div><div id="uploadStatus" class="status"></div><p style="color:#777">Uploaded files cloud me save hongi aur visitors ko gallery me dikhegi.</p></div>
 </div></section>
 
@@ -33,6 +33,15 @@
 <footer>© 2026 VAISHNAV CLICK × SIROHI CLICK — हर पल की एक कहानी।</footer>
 
 <script>
+window.addEventListener("error",e=>{
+  const s=document.getElementById("loginStatus");
+  if(s && e.message) s.textContent="Website script error: "+e.message;
+});
+if(!window.supabase || !window.supabase.createClient){
+  const s=document.getElementById("loginStatus");
+  if(s) s.textContent="Login service load nahi hua. Page ko ek baar refresh karo.";
+  throw new Error("Supabase library failed to load");
+}
 const SUPABASE_URL = "https://ixymrekmkcdnzowmpyey.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_sMHkMrv_U7uqcNpnqd9fyw_MEFIsuOa";
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
@@ -92,8 +101,12 @@ $("loginBtn").onclick=async()=>{
   const email=$("email").value.trim(),password=$("password").value;
   if(!email||!password){setStatus($("loginStatus"),"Email aur password bharo.");return}
   setStatus($("loginStatus"),"Login ho raha hai…");
-  const {error}=await supabase.auth.signInWithPassword({email,password});
-  setStatus($("loginStatus"),error?error.message:"Login successful ✓");
+  try {
+    const {error}=await supabase.auth.signInWithPassword({email,password});
+    setStatus($("loginStatus"),error?error.message:"Login successful ✓");
+  } catch(e) {
+    setStatus($("loginStatus"),"Login error: "+(e?.message||"Unknown error"));
+  }
 };
 
 $("logoutBtn").onclick=()=>supabase.auth.signOut();
