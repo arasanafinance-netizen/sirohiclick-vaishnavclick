@@ -160,6 +160,7 @@ async function loadMedia(){
   mediaLoadInProgress=true;
   try{
   const {data,error}=await supabase.from("media").select("*").order("created_at",{ascending:false});
+    if(data) data.sort((a,b)=>Number(isVideo(b.type))-Number(isVideo(a.type)) || new Date(b.created_at)-new Date(a.created_at));
   if(error){gallery.innerHTML='<div class="empty">Gallery setup pending. Admin login/storage setup complete hone ke baad media yahan dikhega.</div>';return}
   if(!data?.length){gallery.innerHTML='<div class="empty">Abhi koi photo/video upload nahi hai.</div>';return}
   gallery.innerHTML="";
