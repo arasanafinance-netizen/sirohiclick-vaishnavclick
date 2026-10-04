@@ -158,8 +158,8 @@ async function loadMedia(){
   const loggedIn=!!sessionData.session;
   data.forEach(item=>{
     const wrap=document.createElement("div");wrap.className="item";
-    if(isVideo(item.type)){const v=document.createElement("video");v.src=item.url;v.controls=true;v.preload="metadata";wrap.appendChild(v);v.addEventListener("click",e=>{e.stopPropagation();openLightbox(item.url,true,item.name)})}
-    else{const img=document.createElement("img");img.src=item.url;img.alt=item.name||"SIROHI CLICK";img.loading="lazy";wrap.appendChild(img);img.addEventListener("click",()=>openLightbox(item.url,false,item.name))}
+    if(isVideo(item.type)){const v=document.createElement("video");v.src=item.url;v.controls=true;v.preload="metadata";const tag=document.createElement("span");tag.className="media-tag";tag.textContent="REEL";wrap.appendChild(tag);wrap.appendChild(v);v.addEventListener("click",e=>{e.stopPropagation();openLightbox(item.url,true,item.name)})}
+    else{const img=document.createElement("img");img.src=item.url;img.alt=item.name||"SIROHI CLICK";img.loading="lazy";const tag=document.createElement("span");tag.className="media-tag";tag.textContent="PHOTO";wrap.appendChild(tag);wrap.appendChild(img);img.addEventListener("click",()=>openLightbox(item.url,false,item.name))}
     if(loggedIn){const b=document.createElement("button");b.className="delete";b.textContent="×";b.title="Delete";b.onclick=()=>deleteMedia(item);wrap.appendChild(b)}
     gallery.appendChild(wrap);
   });
